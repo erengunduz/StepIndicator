@@ -194,15 +194,16 @@ class AnnularLayer: CAShapeLayer {
         self.fullCircleLayer.fillColor = self.tintColor?.cgColor
         self.addSublayer(self.fullCircleLayer)
         
-        let flagLayerWidth = self.fullCircleLayer.bounds.width * 0.8
-        let flagLayerHeight = self.fullCircleLayer.bounds.height * 0.8
-        self.flagLayer.frame = CGRect(x: self.fullCircleLayer.bounds.width * 0.2 / 2.0, y: self.fullCircleLayer.bounds.height * 0.2 / 2.0, width:flagLayerWidth, height:flagLayerHeight)
+        let flagLayerWidth = self.fullCircleLayer.bounds.width * 0.5
+        let flagLayerHeight = self.fullCircleLayer.bounds.height * 0.5
+        self.flagLayer.frame =
+            CGRect(x: self.fullCircleLayer.bounds.width * 0.5 / 2.0, y: self.fullCircleLayer.bounds.height * 0.5 / 2.0, width:flagLayerWidth, height:flagLayerHeight)
         
         self.animateFullCircle()
     }
     
     private func animateFullCircle() {
-        self.fullCircleLayer.transform = CATransform3DMakeScale(0.8, 0.8, 1.0)
+        self.fullCircleLayer.transform = CATransform3DMakeScale(1.0, 1.0, 2.0)
         self.fullCircleLayer.removeAllAnimations()
         CATransaction.begin()
         CATransaction.setCompletionBlock {
